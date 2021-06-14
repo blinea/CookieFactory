@@ -116,6 +116,23 @@ namespace CookieFactory.Controllers
 
             if (ModelState.IsValid)
             {
+                
+
+                string wwwRootPath = _hostEnviroment.WebRootPath;
+
+                //To Do - Delete Previous image, fill default file, validation?
+
+                string filename = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                string extension = Path.GetExtension(product.ImageFile.FileName);
+
+                product.Image = filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                string path = Path.Combine(wwwRootPath + "/Image/", filename);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await product.ImageFile.CopyToAsync(fileStream);
+                }
+
+
                 try
                 {
                     _context.Update(product);
