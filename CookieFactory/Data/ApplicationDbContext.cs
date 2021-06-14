@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CookieFactory.Models;
 
 namespace CookieFactory.Data
 {
@@ -12,5 +13,6 @@ namespace CookieFactory.Data
             : base(options)
         {
         }
+        public DbSet<CookieFactory.Models.Category> Category { get; set; }
     }
 }
