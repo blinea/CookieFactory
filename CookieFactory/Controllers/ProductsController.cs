@@ -7,16 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CookieFactory.Data;
 using CookieFactory.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace CookieFactory.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _hostEnviroment;
 
-        public ProductsController(ApplicationDbContext context)
+
+        public ProductsController(ApplicationDbContext context, IWebHostEnvironment hostEnviroment)
         {
             _context = context;
+            this._hostEnviroment = hostEnviroment;
         }
 
         // GET: Products
@@ -57,10 +62,21 @@ namespace CookieFactory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Price,CategoryRefId,Description,Quantity,Image")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Price,CategoryRefId,Description,Quantity, ImageFile")] Product product)
         {
             if (ModelState.IsValid)
             {
+                string wwwRootPath = _hostEnviroment.WebRootPath;
+                string filename = Path.GetFileNameWithoutExtension(product.ImageFile.FileName);
+                string extension = Path.GetExtension(product.ImageFile.FileName);
+                product.Image= filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
+                string path = Path.Combine(wwwRootPath + "/Image/", filename);
+                using (var fileStream = new FileStream(path, FileMode.Create))
+                {
+                    await product.ImageFile.CopyToAsync(fileStream);
+                }
+                
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -91,7 +107,7 @@ namespace CookieFactory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,CategoryRefId,Description,Quantity,Image")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,CategoryRefId,Description,Quantity,ImageFile")] Product product)
         {
             if (id != product.Id)
             {
@@ -147,6 +163,11 @@ namespace CookieFactory.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.Product.FindAsync(id);
+
+            var imagePath = Path.Combine(_hostEnviroment.WebRootPath,"image",product.Image);
+            if (System.IO.File.Exists(imagePath))
+                System.IO.File.Delete(imagePath);
+
             _context.Product.Remove(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
