@@ -31,6 +31,8 @@ namespace CookieFactory.Models
         [Required(ErrorMessage = "Product Quantity Required")]
         public int Quantity { get; set; }
 
+        public string Image { get; set; }
+
         public Product()
         {
 
