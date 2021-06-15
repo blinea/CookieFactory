@@ -31,6 +31,19 @@ namespace CookieFactory.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        // GET: Products/ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            var applicationDbContext = _context.Product.Include(p => p.Category);
+            return View();
+        }
+
+        // PoST: Products/ShowSearchResults
+        public async Task<IActionResult> ShowSearchResults( String SearchCategory)
+        {
+            return View("Index", await _context.Product.Where( j => j.Category.Name.Contains(SearchCategory)).ToListAsync());
+        }
+
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
