@@ -37,7 +37,6 @@ namespace CookieFactory.Models
 
         [NotMapped]
         [DisplayName("Upload Image")]
-        //[Required(ErrorMessage = "Product Image Required")]
         public IFormFile ImageFile { get; set; }
 
 
