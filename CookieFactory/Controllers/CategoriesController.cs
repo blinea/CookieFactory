@@ -27,6 +27,12 @@ namespace CookieFactory.Controllers
             return View(await _context.Category.ToListAsync());
         }
 
+        // GET: Categories for guest
+        public async Task<IActionResult> GuestIndex()
+        {
+            return View(await _context.Category.ToListAsync());
+        }
+
         // GET: Categories/Details/5
         [Authorize]
         public async Task<IActionResult> Details(int? id)

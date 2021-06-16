@@ -25,8 +25,16 @@ namespace CookieFactory.Controllers
             this._hostEnviroment = hostEnviroment;
         }
 
+        [Authorize]
         // GET: Products
         public async Task<IActionResult> Index()
+        {
+            var applicationDbContext = _context.Product.Include(p => p.Category);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
+        // GET: Products for guest
+        public async Task<IActionResult> GuestIndex()
         {
             var applicationDbContext = _context.Product.Include(p => p.Category);
             return View(await applicationDbContext.ToListAsync());
@@ -42,9 +50,10 @@ namespace CookieFactory.Controllers
         // PoST: Products/ShowSearchResults
         public async Task<IActionResult> ShowSearchResults( String SearchCategory)
         {
-            return View("Index", await _context.Product.Where( j => j.Category.Name.Contains(SearchCategory)).ToListAsync());
+            return View("GuestIndex", await _context.Product.Where( j => j.Name.Contains(SearchCategory)).ToListAsync());
         }
 
+        [Authorize]
         // GET: Products/Details/5
         public async Task<IActionResult> Details(int? id)
         {
