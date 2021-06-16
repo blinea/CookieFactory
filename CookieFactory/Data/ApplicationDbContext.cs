@@ -15,5 +15,6 @@ namespace CookieFactory.Data
         }
         public DbSet<CookieFactory.Models.Category> Category { get; set; }
         public DbSet<CookieFactory.Models.Product> Product { get; set; }
+        public DbSet<CookieFactory.Models.Cookie> Cookie { get; set; }
     }
 }

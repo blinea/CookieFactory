@@ -1,0 +1,54 @@
+﻿@model CookieFactory.Models.Cookie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Cookie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CookieFlavor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CookieFlavor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Chips)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Chips)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Filling)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Filling)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Topping)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Topping)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

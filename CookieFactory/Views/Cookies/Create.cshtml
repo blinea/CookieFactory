@@ -1,0 +1,55 @@
+﻿@model CookieFactory.Models.Cookie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Cookie</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Text" class="control-label"></label>
+                <input asp-for="Text" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CookieFlavor" class="control-label"></label>
+                <input asp-for="CookieFlavor" class="form-control" />
+                <span asp-validation-for="CookieFlavor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chips" class="control-label"></label>
+                <input asp-for="Chips" class="form-control" />
+                <span asp-validation-for="Chips" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Filling" class="control-label"></label>
+                <input asp-for="Filling" class="form-control" />
+                <span asp-validation-for="Filling" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Topping" class="control-label"></label>
+                <input asp-for="Topping" class="form-control" />
+                <span asp-validation-for="Topping" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
