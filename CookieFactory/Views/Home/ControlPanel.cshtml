@@ -1,7 +1,16 @@
-﻿<h1>Control Panel</h1>
+﻿@{ 
+    var cookies = ControlPanelStatic.Cookies();
+    var categories = ControlPanelStatic.Categories();
+    var products = ControlPanelStatic.Products();
+    DateTime myDateTime = ControlPanelStatic.Now();
+}  
+<h1>Control Panel</h1>
+<h2>@myDateTime</h2>
 
-<a class="nav-link text-dark" asp-area="" asp-controller="Cookies" asp-action="Index">Cookies</a>
+<a class="nav-link text-dark" asp-area="" asp-controller="Cookies" asp-action="Index">@cookies</a>
 
-<a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+<a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">@categories</a>
 
-<a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
+<a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">@products</a>
+
+
