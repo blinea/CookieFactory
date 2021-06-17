@@ -24,6 +24,22 @@ namespace CookieFactory.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Terms()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         [Authorize]
         public IActionResult ControlPanel()
         {

@@ -1,55 +1,58 @@
 ﻿@model CookieFactory.Models.Cookie
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Create Cookie";
 }
 
-<h1>Create</h1>
+<h1 class="text-center text-warning pt-3">Create Cookie</h1>
 
-<h4>Cookie</h4>
-<hr />
-<div class="row">
+<div class="row text-light text-center pt-3">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Text" class="control-label"></label>
+                <label asp-for="Text" class="control-label h5 pt-3"></label>
                 <input asp-for="Text" class="form-control" />
                 <span asp-validation-for="Text" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CookieFlavor" class="control-label"></label>
+                <label asp-for="CookieFlavor" class="control-label h5 pt-3"></label>
                 <input asp-for="CookieFlavor" class="form-control" />
                 <span asp-validation-for="CookieFlavor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Chips" class="control-label"></label>
+                <label asp-for="Chips" class="control-label h5 pt-3"></label>
                 <input asp-for="Chips" class="form-control" />
                 <span asp-validation-for="Chips" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Filling" class="control-label"></label>
+                <label asp-for="Filling" class="control-label h5 pt-3"></label>
                 <input asp-for="Filling" class="form-control" />
                 <span asp-validation-for="Filling" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Topping" class="control-label"></label>
+                <label asp-for="Topping" class="control-label h5 pt-3"></label>
                 <input asp-for="Topping" class="form-control" />
                 <span asp-validation-for="Topping" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
+                <label asp-for="Image" class="control-label h5 pt-3"></label>
                 <input asp-for="Image" class="form-control" />
                 <span asp-validation-for="Image" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-warning btn-lg" />
             </div>
         </form>
     </div>
+
+    <div class="col-md-7 mt-5 ml-5">
+        <img src="~/assets/oreo.gif" class="img-fluid img-thumbnail"/>
+    </div>
+
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="text-info">Back to List</a>
 </div>
 

@@ -1,13 +1,19 @@
 ﻿@model CookieFactory.Models.Product
 
-<h4>Search Product by Category</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="ShowSearchResultsCat">
+@{
+    ViewData["Title"] = "Categories";
+}
 
-            <div class="form-group">
-                <label name="SearchCategory" class="control-label"></label>
+<h1 class="text-center text-warning pt-3">Category Search</h1>
+
+<div class="row pt-5">
+    <div class="col-md">
+        <img src="https://media.giphy.com/media/13NP2tXPeJzP44/giphy.gif" class="img-fluid img-thumbnail" />
+    </div>
+    <div class="col-md">
+        <form asp-action="ShowSearchResultsCat">
+            <div class="form-group p-5 text-center">
+                <label name="SearchCategory" class="control-label text-center text-light h5 p-3">Select Category</label>
                 <select name="SearchCategory" class="form-control">
                     <option value="Cakes">Cakes</option>
                     <option value="Beverages">Beverages</option>
@@ -18,11 +24,13 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <input type="submit" value="search" btn btn-primary" />
+            <div class="form-group text-center">
+                <input type="submit" value="Search" class="btn btn-warning btn-lg" />
             </div>
         </form>
     </div>
 </div>
 
-
+<div class="mt-5">
+    <a asp-action="GuestIndex" class="text-info">Back to List</a>
+</div>

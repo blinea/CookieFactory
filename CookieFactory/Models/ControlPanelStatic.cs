@@ -7,6 +7,12 @@ namespace CookieFactory.Models
 {
     public static class ControlPanelStatic
     {
+        public static DateTime Now()
+        {
+            DateTime dateTime = DateTime.Now;
+            return dateTime;
+        }
+
         public static string Cookies()
         {
             string name = "Cookies";
@@ -23,12 +29,6 @@ namespace CookieFactory.Models
         {
             string name = "Products";
             return name;
-        }
-
-        public static DateTime Now()
-        {
-            DateTime dateTime = DateTime.Now;
-            return dateTime;
         }
     }
 }

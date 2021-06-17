@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Request Help";
+}
+
+<h1 class="text-center text-warning pt-3">Request Help</h1>
+
+<div class="row text-light text-center pt-3">
+    <div class="col">
+        <form action="https://formsubmit.co/febea27b88c0c2ac7a88388b31545f86" id="usrform" method="POST">
+            <label for="text" class="control-label h5 pt-3">Name</label>
+            <input type="text" class="form-control" name="name" required>
+            <label for="email" class="control-label h5 pt-3">Email</label>
+            <input type="email" class="form-control" name="email" required>
+            <label for="textarea" class="control-label h5 pt-3">Message</label>
+            <textarea name="textarea" class="form-control" form="usrform"></textarea>
+            <button type="submit" class="btn btn-warning btn-lg mt-3">Request</button>
+        </form>
+    </div>
+    <div class="col mt-5 ml-5">
+        <img src="https://media.giphy.com/media/qIFJYOOi09bk4/giphy.gif" class="img-fluid img-thumbnail" />
+    </div>
+</div>
+
+
