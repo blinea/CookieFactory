@@ -80,7 +80,7 @@ namespace CookieFactory.Controllers
 
                 _context.Add(email);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("ControlPanel", "Home");
             }
             return View(email);
         }

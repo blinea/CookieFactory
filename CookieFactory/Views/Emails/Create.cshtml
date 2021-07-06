@@ -1,45 +1,42 @@
 ﻿@model CookieFactory.Models.Email
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Request Help";
 }
 
-<h1>Create</h1>
+<h1 class="text-center text-warning pt-3">Request Help</h1>
 
-<h4>Email</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="row text-light text-center pt-3 mr-4">
+    <div class="col">
         <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="UserName" class="control-label"></label>
+                <label asp-for="UserName" class="control-label h5 pt-3"></label>
                 <input asp-for="UserName" class="form-control" />
                 <span asp-validation-for="UserName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="UserEmail" class="control-label"></label>
+                <label asp-for="UserEmail" class="control-label h5 pt-3"></label>
                 <input asp-for="UserEmail" class="form-control" />
                 <span asp-validation-for="UserEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Message" class="control-label"></label>
-                <input asp-for="Message" class="form-control" />
+                <label asp-for="Message" class="control-label h5 pt-3"></label>
+                <textarea asp-for="Message" class="form-control" rows="5"></textarea>
                 <span asp-validation-for="Message" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="AttatchmentFile" class="control-label"></label>
+                <label asp-for="AttatchmentFile" class="control-label h5 pt-3"></label>
                 <input asp-for="AttatchmentFile" />
                 <span asp-validation-for="Attatchment" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-warning btn-lg mt-3"/>
             </div>
         </form>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div class="col mt-5 ml-5">
+        <img src="https://media.giphy.com/media/qIFJYOOi09bk4/giphy.gif" class="img-fluid img-thumbnail" />
+    </div>
 </div>
-
