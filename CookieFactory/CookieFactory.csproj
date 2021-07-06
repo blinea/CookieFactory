@@ -17,6 +17,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\image\" />
     <Folder Include="wwwroot\assets\" />
+    <Folder Include="wwwroot\attatchments\" />
   </ItemGroup>
 
 </Project>

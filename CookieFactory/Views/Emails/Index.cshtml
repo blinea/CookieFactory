@@ -39,12 +39,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Message)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Attatchment)
+            <td>              
+                <a href=@("/attatchments/" + item.Attatchment) target="_blank">@Html.DisplayFor(modelItem => item.Attatchment)</a>
             </td>
             <td>
+                <!--
                 <a asp-action="Edit" asp-route-id="@item.EmailId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.EmailId">Details</a> |
+                -->
                 <a asp-action="Delete" asp-route-id="@item.EmailId">Delete</a>
             </td>
         </tr>
