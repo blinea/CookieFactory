@@ -81,31 +81,14 @@ namespace CookieFactory.Controllers
                 {
                     await email.AttatchmentFile.CopyToAsync(fileStream);
                 }
-                /*
-                string BotEmail = "cookiefactoryenterprise@gmail.com";
-                string OriginEmail = "cookiefactoryenterprise@gmail.com";
-                string DestinyEmail = "cookiefactoryenterprise@gmail.com";
-                string Password = "cookiefactory666";
-
-                MailMessage oMailMessage = new MailMessage(OriginEmail, DestinyEmail, "Subject", "<b>Mail Body</b>");
-
-                oMailMessage.IsBodyHtml = true;
-                SmtpClient oSmtpClient = new SmtpClient("smpt.gmail.com");
-                oSmtpClient.EnableSsl = true;
-                oSmtpClient.UseDefaultCredentials = false;
-                oSmtpClient.Port = 587;
-                oSmtpClient.Credentials = new System.Net.NetworkCredential(OriginEmail, Password);
-
-                oSmtpClient.Send(oMailMessage);
-                oSmtpClient.Dispose();
-                */
 
                 MailMessage mail = new MailMessage();
 
                 mail.From = new MailAddress("cookiefactoryenterprise@gmail.com");
                 mail.To.Add("cookiefactoryenterprise@gmail.com");
-                mail.Subject = "Test Mail";
-                mail.Body = "This is for testing SMTP mail from GMAIL";
+                mail.Subject = email.UserName + " - " + email.UserEmail;
+                mail.Body = email.Message;
+                mail.Attachments.Add(new Attachment(path));
 
                 SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
                 smtpServer.Port = 587;
