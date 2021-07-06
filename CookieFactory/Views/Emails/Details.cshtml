@@ -1,42 +1,43 @@
 ﻿@model CookieFactory.Models.Email
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Reply Email";
 }
 
-<h1>Details</h1>
+<h1 class="text-center text-warning">Reply Email</h1>
+
+<div class="container">
+    <div class="col-md-6 text-light text-center pt-3 mr-4">
+        <form asp-action="Reply" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label h5 pt-3"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEmail" class="control-label h5 pt-3"></label>
+                <input asp-for="UserEmail" class="form-control" />
+                <span asp-validation-for="UserEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Message" class="control-label h5 pt-3"></label>
+                <textarea name="Message" class="form-control" rows="7"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AttatchmentFile" class="control-label h5 pt-3"></label>
+                <input asp-for="AttatchmentFile" />
+                <span asp-validation-for="Attatchment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Reply" class="btn btn-success btn-lg mt-3" />
+            </div>
+        </form>
+    </div>
+</div>
+
 
 <div>
-    <h4>Email</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserEmail)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserEmail)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Message)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Message)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Attatchment)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Attatchment)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.EmailId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="text-info" asp-action="Index">Back to List</a>
 </div>

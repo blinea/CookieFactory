@@ -44,9 +44,10 @@
                     <td class="align-middle">
                         <!--
                         <a asp-action="Edit" asp-route-id="@item.EmailId">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.EmailId">Details</a> |
                         -->
-                        <a class="pt-3" asp-action="Delete" asp-route-id="@item.EmailId"><img class="mt-4" src="~/assets/delete.png" width="30px" height="30px" /></a>
+                        <a asp-action="Details" asp-route-id="@item.EmailId"><img class="mt-4" src="~/assets/reply.png" width="30px" height="30px" /></a>
+
+                        <a class="pt-3" asp-action="Delete" asp-route-id="@item.EmailId"><img class="mt-4 ml-2" src="~/assets/delete.png" width="30px" height="30px" /></a>
                     </td>
                 </tr>
             }
