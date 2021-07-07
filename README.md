@@ -20,4 +20,4 @@ Evaluación 3 Programación Avanzada INACAP.
 #
 -Por motivos de tiempo no se agregó una validación para los archivos adjuntos, en caso de testear el envío o respuesta de email porfavor adjuntar un archivo
 #
--El diagrama de clase y el screenshot de commits se incluyen como archivos png en la carpeta raíz del proyecto.
+-El diagrama de clase y el screenshot de commits se incluyen como archivos png en el proyecto.
